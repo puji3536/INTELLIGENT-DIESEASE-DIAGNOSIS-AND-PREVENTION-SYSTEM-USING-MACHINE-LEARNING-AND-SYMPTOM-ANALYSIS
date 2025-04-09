@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Hospitals</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/find-hospital.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="logo">Find Hospitals</div>
+        <ul>
+            
+            <li><a href="/">Home</a></li>
+            <li><a href="#" onclick="showPrediction()">Predict Disease</a></li>
+            <li><a href="/find-hospital">Find Hospitals</a></li>
+            
+           
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <div class="h-c"><label for="disease">Select Disease:</label>
+        <select id="disease">
+            <option value="">--Select Disease--</option>
+        </select>
+        <br><br>
+    
+        <label for="state">Select State:</label>
+        <select id="state" disabled>
+            <option value="">--Select State--</option>
+        </select>
+        <br><br>
+    
+        <label for="district">Select District:</label>
+        <select id="district" disabled>
+            <option value="">--Select District--</option>
+        </select>
+        <br><br>
+        <button id="fetch-hospitals">Fetch Hospitals</button>
+    </div>
+    <!-- <button id="fetch-hospitals">Fetch Hospitals</button> -->
+    <div id="hospitals-container"></div> 
+   <!--
+    <label for="disease">Select Disease:</label>
+    <select id="disease">
+        <option value="">--Select Disease--</option>
+    </select>
+    <br><br>
+
+    <label for="state">Select State:</label>
+    <select id="state" disabled>
+        <option value="">--Select State--</option>
+    </select>
+    <br><br>
+
+    <label for="district">Select District:</label>
+    <select id="district" disabled>
+        <option value="">--Select District--</option>
+    </select>
+    <br><br>
+
+    <button id="fetch-hospitals">Fetch Hospitals</button>
+    <div id="hospitals-container"></div>  
+    -->
+    
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='js/find-hospital.js') }}" defer></script>
+</body>

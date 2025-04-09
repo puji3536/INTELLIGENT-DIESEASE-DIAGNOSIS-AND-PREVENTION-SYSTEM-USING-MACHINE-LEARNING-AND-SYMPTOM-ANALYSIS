@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Queue Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; margin: auto; }
+        label { display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+        input[type="submit"] { margin-top: 20px; }
+    </style>
+    <script>
+        const doctorMap = {{ doctor_map | tojson }};
+        
+        function updateDoctor() {
+            const disease = document.getElementById("disease").value;
+            document.getElementById("doctor").value = doctorMap[disease] || "Not Assigned";
+        }
+    </script>
+</head>
+<body>
+    <h2>Queue Management System</h2>
+    <form method="post" action="/submit">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+
+        <label for="disease">Disease:</label>
+        <select name="disease" id="disease" onchange="updateDoctor()" required>
+            {% for disease in doctor_map.keys() %}
+                <option value="{{ disease }}">{{ disease }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="doctor">Doctor:</label>
+        <input type="text" name="doctor" id="doctor" readonly>
+
+        <input type="submit" value="Get Token & Open Google Form">
+    </form>
+</body>
+</html>
