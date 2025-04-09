@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Queue Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+    
+</head>
+<body>
+    <h2>Queue Management System</h2>
+    <form onsubmit="generatePDF(event); submitToGoogleForm(); return false;">
+
+        <label for="name">Patient Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+        
+        <label for="contact">Contact Number:</label>
+        <input type="tel" name="contact" id="contact" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="disease">Disease:</label>
+        <select name="disease" id="disease" onchange="updateDoctor()" required></select>
+
+        <label for="doctor">Doctor:</label>
+        <input type="text" name="doctor" id="doctor" readonly>
+
+        <label for="appointmentDate">Appointment Date:</label>
+        <input type="date" name="appointmentDate" id="appointmentDate" required>
+
+        <input type="submit" value="Download PDF">
+    </form>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="dc.css">
+</head>
+<body>
+    <h2>Doctor's Dashboard</h2>
+
+    <!-- Patient Queue Table -->
+    <table id="patientTable">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Disease</th>
+               
+                <th>Appointment Date</th>
+                <th>Status</th>
+                <th>Update Status</th>
+            </tr>
+        </thead>
+        <tbody id="queueBody">
+            <!-- Patient data dynamically loaded -->
+        </tbody>
+    </table>
+
+    <button onclick="sendNotification()">Notify Next Patients</button>
+
+    <script>
+        function sendNotification() {
+            // Replace the URL with your deployed Web App URL
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbxqEPgTlPlzog7Fno3JVKjKQdeZkvy99HefYkB7Go6RqAvQju8lees-H-zeL6oDBT5ygA/exec';
+            const urlWithParams = `${webAppUrl}?action=sendNotifications`;
+            fetch(urlWithParams)
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);  // Display success message
+                })
+                .catch(error => {
+                    console.error('Error sending notifications:', error);
+                    alert('Error sending notifications. Please try again.');
+                });
+        }
+    </script>
+
+    <script src="dc.js"></script>
+</body>
+</html>
